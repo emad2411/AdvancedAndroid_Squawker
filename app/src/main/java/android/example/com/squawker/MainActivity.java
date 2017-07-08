@@ -18,6 +18,7 @@ package android.example.com.squawker;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.example.com.squawker.fcm.FcmService;
 import android.example.com.squawker.following.FollowingPreferenceActivity;
 import android.example.com.squawker.provider.SquawkContract;
 import android.example.com.squawker.provider.SquawkProvider;
@@ -34,6 +35,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.FirebaseInstanceIdService;
 
 public class MainActivity extends AppCompatActivity implements
         LoaderManager.LoaderCallbacks<Cursor> {
@@ -102,7 +106,8 @@ public class MainActivity extends AppCompatActivity implements
         // TODO (3) Here, in MainActivity, get a token using FirebaseInstanceId.getInstance().getToken()
         // TODO (4) Get the message from that token and print it in a log statement
 
-
+        String token= FirebaseInstanceId.getInstance().getToken();
+        Log.i("tag",token);
     }
 
     @Override
